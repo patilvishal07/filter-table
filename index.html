@@ -4,20 +4,186 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Static web</title>
+    <title>Filter Table</title>
+    <style>
+        #myInput {
+  background-image: url('/css/searchicon.png'); 
+  background-position: 10px 12px; 
+  background-repeat: no-repeat;
+  width: 100%; 
+  font-size: 16px;
+  padding: 12px 20px 12px 40px; 
+  border: 1px solid #000; 
+  margin-bottom: 12px; 
+}
+
+#myTable {
+  border-collapse: collapse; 
+  width: 100%;
+  border: 1px solid #000; 
+  text-align: center;
+}
+
+#myTable th, #myTable td {
+  text-align: left; 
+  padding: 12px;
+  border: 1px solid #000;
+}
+
+#myTable tr {
+ 
+  border-bottom: 1px solid rgb(94, 14, 14);
+}
+
+#myTable tr.header, #myTable tr:hover {
+ 
+  background-color: #c16ec5;
+}
+    </style>
 </head>
 <body>
-    <main>
-        <div class="div1">header</div>
-        <div class="div2">box1</div>
-        <div class="div3">box2</div>
-        <div class="div4">box3</div>
-        <div class="div5">Sidebar</div>
-        <div class="div6">main content</div>
-        <div class="div7">footer</div>
-        
-    </main>
+    <h2 style="text-align:center; text-transform: uppercase; color:rgb(94, 14, 14); ">My Friends</h2>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." >
+
+<table id="myTable" >
+  <tr class="header">
+    <th style="width:60%;">Name</th>
+    <th style="width:40%;">Degree</th>
+    <th style="width:40%;">Profession</th>
+
+  </tr>
+  <tr>
+      <td>Vinayak</td>
+      <td>BSc</td>
+      <td>Full Stack Decveloper</td>
+  </tr>
+  <tr>
+    <td>Vijay</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Vilas</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Vilas</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Manoj</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Ashwin</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Imalesh</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Deepak</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Akshay</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Murlidhar</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Chetan</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Kiran</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+<tr>
+    <td>Gokul</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+
+<tr>
+    <td>Manik</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+
+<tr>
+    <td>Rupesh</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+
+<tr>
+    <td>Shyam</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+
+<tr>
+    <td>Degambar</td>
+    <td>BSc</td>
+    <td>Power BI</td>
+</tr>
+
+<tr>
+    <td>Anil</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+
+<tr>
+    <td>Rahul</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+
+<tr>
+    <td>Mohit</td>
+    <td>BSc</td>
+    <td>Full Stack Decveloper</td>
+</tr>
+
+  
+</table>
+<script>
+    function myFunction() {
+      //  variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
     
+    //   loop start
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
 </body>
 </html>
